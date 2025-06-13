@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catálogo de Filmes</title>
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+      color: #ffffff;
+      background: url('https://image.tmdb.org/t/p/w500/1NqwE6LP9IEdOZ57NCT51ftHtWT.jpg') no-repeat center center fixed;
+      background-size: cover;
+      position: relative;
+    }
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(10px);
+      z-index: -1;
+    }
+    .carousel-container {
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 40px;
+    }
+    .carousel-wrapper {
+      display: flex;
+      overflow-x: auto;
+      gap: 20px;
+      padding: 20px;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scroll-behavior: smooth;
+    }
+    .poster {
+      flex: 0 0 auto;
+      width: 200px;
+      height: 300px;
+      background-color: #111;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+      scroll-snap-align: start;
+    }
+    .poster img {
+      width: 100%;
+      height: 85%;
+      object-fit: cover;
+    }
+    .poster-title {
+      text-align: center;
+      padding: 10px;
+      font-size: 1rem;
+    }
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 2rem;
+      background-color: rgba(0, 0, 0, 0.5);
+      border: none;
+      color: white;
+      cursor: pointer;
+      z-index: 10;
+      padding: 10px;
+      border-radius: 50%;
+    }
+    .arrow-left {
+      left: 10px;
+    }
+    .arrow-right {
+      right: 10px;
+    }
+    @media (max-width: 600px) {
+      .poster {
+        width: 150px;
+        height: 225px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1 style="text-align:center; padding:20px;">Catálogo de Filmes</h1>
+
+  <!-- Carrossel 1 -->
+  <div class="carousel-container">
+    <button class="arrow arrow-left" onclick="scrollCarousel('carousel1', -1)">&#8249;</button>
+    <div class="carousel-wrapper" id="carousel1">
+      <div class="poster"><img src="https://image.tmdb.org/t/p/w500/8YFL5QQVPy3AgrEQxNYVSgiPEbe.jpg" alt="Filme"><div class="poster-title">Vingadores: Ultimato</div></div>
+      <div class="poster"><img src="https://image.tmdb.org/t/p/w500/fOy2Jurz9k6RnJnMUMRDAgBwru2.jpg" alt="Filme"><div class="poster-title">Homem-Aranha: Sem Volta</div></div>
+      <div class="poster"><img src="https://image.tmdb.org/t/p/w500/3n2TjKw3HrwDqgVgcynvantOfS3.jpg" alt="Filme"><div class="poster-title">Batman</div></div>
+      <div class="poster"><img src="https://image.tmdb.org/t/p/w500/vZloFAK7NmvMGKE7VkF5UHaz0I.jpg" alt="Filme"><div class="poster-title">John Wick 4</div></div>
+      <div class="poster"><img src="https://image.tmdb.org/t/p/w500/qNBAXBIQlnOThrVvA6mA2B5ggV6.jpg" alt="Filme"><div class="poster-title">Avatar 2</div></div>
+      <div class="poster"><img src="https://image.tmdb.org/t/p/w500/uJYYizSuA9Y3DCs0qS4qWvHfZg4.jpg" alt="Filme"><div class="poster-title">Pantera Negra</div></div>
+      <div class="poster"><img src="https://image.tmdb.org/t/p/w500/6DrHO1jr3qVrViUO6s6kFiAGM7.jpg" alt="Filme"><div class="poster-title">Top Gun: Maverick</div></div>
+      <div class="poster"><img src="https://image.tmdb.org/t/p/w500/1NqwE6LP9IEdOZ57NCT51ftHtWT.jpg" alt="Filme"><div class="poster-title">Matrix Resurrections</div></div>
+    </div>
+    <button class="arrow arrow-right" onclick="scrollCarousel('carousel1', 1)">&#8250;</button>
+  </div>
+
+  <!-- Carrossel 2 -->
+  <div class="carousel-container">
+    <button class="arrow arrow-left" onclick="scrollCarousel('carousel2', -1)">&#8249;</button>
+    <div class="carousel-wrapper" id="carousel2">
+      <div class="poster"><img src="https://image.tmdb.org/t/p/w500/r2J02Z2OpNTctfOSN1Ydgii51I3.jpg" alt="Filme"><div class="poster-title">Doutor Estranho 2</div></div>
+      <div class="poster"><img src="https://image.tmdb.org/t/p/w500/czembW0Rk1Ke7lCJGahbOhdCuhV.jpg" alt="Filme"><div class="poster-title">Interestelar</div></div>
+      <div class="poster"><img src="https://image.tmdb.org/t/p/w500/nLBRD7UPR6GjmWQp6ASAfCTaWKX.jpg" alt="Filme"><div class="poster-title">Oppenheimer</div></div>
+      <div class="poster"><img src="https://image.tmdb.org/t/p/w500/sRvXNDItGlWCqtO3j6wks52FmbD.jpg" alt="Filme"><div class="poster-title">The Flash</div></div>
+      <div class="poster"><img src="https://image.tmdb.org/t/p/w500/7bWxAsNPv9CXHOhZbJVlj2KxgfP.jpg" alt="Filme"><div class="poster-title">Pânico VI</div></div>
+      <div class="poster"><img src="https://image.tmdb.org/t/p/w500/xwA90BwZXTh8ke3CVsQlj8EOkFr.jpg" alt="Filme"><div class="poster-title">Duna</div></div>
+      <div class="poster"><img src="https://image.tmdb.org/t/p/w500/eNI7PtK6DEYgZmHWP9gQNuff8pv.jpg" alt="Filme"><div class="poster-title">Venom</div></div>
+      <div class="poster"><img src="https://image.tmdb.org/t/p/w500/4Zna9CvyzaAgejsErmyXmHC64Dd.jpg" alt="Filme"><div class="poster-title">Morbius</div></div>
+    </div>
+    <button class="arrow arrow-right" onclick="scrollCarousel('carousel2', 1)">&#8250;</button>
+  </div>
+
+  <script>
+    function scrollCarousel(id, direction) {
+      const carousel = document.getElementById(id);
+      const scrollAmount = 220;
+      carousel.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+    }
+  </script>
+</body>
+</html>
